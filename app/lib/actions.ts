@@ -59,7 +59,7 @@ export type State = {
     } catch (error) {
       // If a database error occurs, return a more specific error.
       return {
-        message: 'Database Error: Failed to Create Invoice.',
+        message: 'Database Error: Failed to Create Invoice.', error
       };
     }
    
@@ -101,7 +101,7 @@ export async function updateInvoice(
         WHERE id = ${id}
       `;
     } catch (error) {
-      return { message: 'Database Error: Failed to Update Invoice.' };
+      return { message: 'Database Error: Failed to Update Invoice.', error };
     }
    
     revalidatePath('/dashboard/invoices');
